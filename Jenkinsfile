@@ -19,8 +19,42 @@
 //     }
 // }
 
+// pipeline {
+//     agent any
+//     stages {
+//         stage('Build') {
+//             steps {
+// 				sh "echo This is build"
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+// 				sh "echo This is test"
+//             }
+//         }
+//         stage('Deploy') {
+//             steps {
+// 				sh "echo This is deploy"
+//             }
+//         }
+//     }
+// 	post {
+// 		always{
+// 			echo "This section runs always"
+// 		}
+// 		success{
+// 			echo "This section run when pipeline success"
+// 		}
+// 		failure{
+// 			echo "This section run when pipeline failures"
+// 		}
+// 	}
+// }
+
 pipeline {
-    agent any
+    agent {
+		label 'AGENT-1'
+	}
     stages {
         stage('Build') {
             steps {
